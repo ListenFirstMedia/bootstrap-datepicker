@@ -824,8 +824,23 @@
 
 			$.each(this.dates, function(i, d){
 				if (d.getUTCFullYear() === year)
-					months.eq(d.getUTCMonth()).addClass('active');
+					  months.eq(d.getUTCMonth()).addClass('active');
 			});
+        $.each(months, function (i, m){
+            if(this.range){
+                d = new Date(year, i);
+                if (d > this.range[0] && d < this.range[this.range.length-1]){
+					          $(m).addClass('range');
+				        }
+                var rangeMonths = $.map(this.range, function(i, r){
+                    var rd = new Date(r);
+                    return rd.getYear()+rd.getMonth();
+                });
+                if ($.inArray(d.getYear()+d.getMonth(), rangeMonths)){
+					          $(m).addClass('selected');
+				        }
+            }
+        });
 
 			if (year < startYear || year > endYear){
 				months.addClass('disabled');

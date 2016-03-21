@@ -832,11 +832,11 @@
                 if (d > this.range[0] && d < this.range[this.range.length-1]){
 					          $(m).addClass('range');
 				        }
-                var rangeMonths = $.map(this.range, function(i, r){
+                var rangeMonths = $.map(this.range, function(r, i){
                     var rd = new Date(r);
-                    return rd.getYear()+rd.getMonth();
+                    return rd.getYear().toString()+rd.getMonth().toString();
                 });
-                if ($.inArray(d.getYear()+d.getMonth(), rangeMonths)){
+                if ($.inArray(d.getYear()+d.getMonth(), rangeMonths) !== -1){
 					          $(m).addClass('selected');
 				        }
             }

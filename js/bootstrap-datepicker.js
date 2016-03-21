@@ -840,7 +840,7 @@
 					          $(m).addClass('selected');
 				        }
             }
-        });
+        }.bind(this));
 
 			if (year < startYear || year > endYear){
 				months.addClass('disabled');

@@ -834,7 +834,7 @@
 				        }
                 var rangeMonths = $.map(this.range, function(r, i){
                     var rd = new Date(r);
-                    rd.setDate(1);
+                    rd = new Date(rd.getYear(), rd.getMonth());
                     return rd.valueOf();
                 });
                 if ($.inArray(d.valueOf(), rangeMonths) !== -1){

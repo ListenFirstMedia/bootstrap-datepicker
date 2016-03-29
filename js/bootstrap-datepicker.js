@@ -828,13 +828,13 @@
 			});
         $.each(months, function (i, m){
             if(this.range){
-                d = new Date(year, i);
+                d = Date.UTC(year, i);
                 if (d > this.range[0] && d < this.range[this.range.length-1]){
 					          $(m).addClass('range');
 				        }
                 var rangeMonths = $.map(this.range, function(r, i){
                     var rd = new Date(r);
-                    rd = new Date(rd.getUTCFullYear(), rd.getUTCMonth());
+                    rd = Date.UTC(rd.getUTCFullYear(), rd.getUTCMonth());
                     return rd.valueOf();
                 });
                 if ($.inArray(d.valueOf(), rangeMonths) !== -1){
